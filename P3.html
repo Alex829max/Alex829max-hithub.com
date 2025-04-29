@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logo Giratorio + Título Dinámico + Menú</title>
+  <style>
+    body {
+      perspective: 1500px;
+      overflow-x: hidden;
+      background: #333;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    nav {
+      background-color: #111;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00ff00;
+    }
+
+    header {
+      margin: 50px auto 0 auto;
+      padding: 20px;
+      text-align: center;
+      border: 2px solid rgb(54, 15, 15);
+      width: fit-content;
+      color: white;
+      transition: transform 1s ease-in-out;
+      transform-style: preserve-3d;
+    }
+
+    header:hover {
+      transform: rotateY(-360deg);
+    }
+
+    header h1 {
+      transform: rotateY(360deg);
+      backface-visibility: hidden;
+      font-size: 30px;
+    }
+
+    
+    .cube {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 100px auto 0;
+      transform-style: preserve-3d;
+      animation: spin 10s infinite linear;
+    }
+
+    .cubeface {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: url('imagenes/2. p.jpg') center center / cover no-repeat;
+      border: 2px solid #111;
+    }
+
+    /* Frente */
+    .cubeface.face1 {
+      transform: rotateY(0deg) translateZ(100px);
+    }
+    /* Atrás */
+    .cubeface.face2 {
+      transform: rotateY(180deg) translateZ(100px);
+    }
+    /* Derecha */
+    .cubeface.face3 {
+      transform: rotateY(90deg) translateZ(100px);
+    }
+    /* Izquierda */
+    .cubeface.face4 {
+      transform: rotateY(-90deg) translateZ(100px);
+    }
+    /* Arriba */
+    .cubeface.face5 {
+      transform: rotateX(90deg) translateZ(100px);
+    }
+    /* Abajo */
+    .cubeface.face6 {
+      transform: rotateX(-90deg) translateZ(100px);
+    }
+
+    @keyframes spin {
+      from { transform: rotateX(0deg) rotateY(0deg); }
+      to { transform: rotateX(360deg) rotateY(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="P2.html">Productos</a>
+    <a href="P4.html">Servicios</a>
+    <a href="#">Contacto</a>
+  </nav>
+
+  <header>
+    <h1>HOLA PERSACOM</h1>
+  </header>
+
+  <div class="cube">
+    <div class="cubeface face1"></div>
+    <div class="cubeface face2"></div>
+    <div class="cubeface face3"></div>
+    <div class="cubeface face4"></div>
+    <div class="cubeface face5"></div>
+    <div class="cubeface face6"></div>
+  </div>
+
+</body>
+</html>
